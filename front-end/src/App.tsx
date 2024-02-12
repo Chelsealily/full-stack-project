@@ -1,4 +1,4 @@
-import './App.scsscss'
+import './App.scss'
 
 function App() {
 
