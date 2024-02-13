@@ -1,8 +1,12 @@
 package com.nology.fullstack;
-import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import javax.transaction.Transactional;
+
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarService {
@@ -17,8 +21,13 @@ public class CarService {
 
     // READ
 
-    public List<Car> getAllCars() {
-        return carRepository.getAllCars();
+    public List<Car> getAllCars(int limit) {
+        return carRepository
+                .findAll()
+                .stream()
+                .limit(limit)
+                .collect(Collectors.toList());
+
     }
 
     // UPDATE

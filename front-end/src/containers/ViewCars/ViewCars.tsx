@@ -10,16 +10,14 @@ const viewCars = () => {
     }, []);
   
     const fetchCars = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/cars'); // Update the URL to match your backend endpoint
+
+        const response = await fetch('http://localhost:8080/cars');
         if (!response.ok) {
           throw new Error('Failed to fetch cars');
         }
         const carData = await response.json();
         setCars(carData);
-      } catch (error) {
-        console.error('Error fetching cars:', error);
-      }
+        console.log(carData);
     };
   
     return (

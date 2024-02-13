@@ -29,9 +29,9 @@ public class CarController {
     }
 
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> getCars() {
+    public ResponseEntity<List<Car>> getCars(@RequestParam(defaultValue = "10") int limit) {
 
-        return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars());
+        return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars(limit));
     }
 
     // UPDATE
