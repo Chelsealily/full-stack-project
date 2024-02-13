@@ -1,15 +1,15 @@
 .car-card {
     width: 28vw;
     box-shadow: 5px 5px 10px #888888;
-    height: 500px;
+    height: 70vh;
     text-align: center;
     background-color: rgb(202, 202, 202);
     padding-top: 20px;
   }
   
   .car-card:hover {
-    background-color: rgb(116, 149, 150);
-    border: 3px solid rgb(182, 158, 127);
+    background-color: rgb(126, 201, 203);
+    border: 3px solid burlywood;
   }
   
   .car-card__pic {
