@@ -1,4 +1,5 @@
 package com.nology.fullstack;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -6,14 +7,33 @@ import java.util.List;
 @Service
 public class CarService {
 
-    private final CarRepository carRepository;
-
     @Autowired
-    public CarService(CarRepository carRepository) {
-        this.carRepository = carRepository;
+    CarRepository carRepository;
+
+    // CREATE
+    public void addCar(Car car) {
+        carRepository.save(car);
     }
+
+    // READ
 
     public List<Car> getAllCars() {
-        return carRepository.findAll();
+        return carRepository.getAllCars();
     }
+
+    // UPDATE
+
+    public void updateCar(Car newCar, long id) {
+        carRepository.save(newCar);
+    }
+
+
+
+    // DELETE
+    @Transactional
+    public void deleteCarById(long id) {
+        carRepository.deleteCarById(id);
+    }
+
 }
+
