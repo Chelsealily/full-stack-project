@@ -1,17 +1,21 @@
+import { CarType } from "../../types/types";
 import CarCard from "../CarCard/CarCard";
 import "./CarCardList.scss";
 
+type CarCardListProps ={
+  cars:CarType[];
+}
 
-const CardList = () => {
+//later on I need to add the edit link for each card
 
+const CarCardList = ({cars}:CarCardListProps) => { 
   return ( 
-    <div className="cardlist-container">
-    
-      <CarCard image={""} make={""} model={""} year={0} color={""} />
-
-    </div>
-  );
-  
+    <div className="card-list">
+       {cars.map((car) => (
+      <CarCard carInfo={car}/>
+       
+  ))};
+  </div>
+);
 };
-
-export default CardList;
+export default CarCardList;

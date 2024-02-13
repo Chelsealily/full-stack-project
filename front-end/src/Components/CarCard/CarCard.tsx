@@ -1,14 +1,15 @@
+import { CarType } from "../../types/types";
 import "./CarCard.scss"
 
 type CarCardProps = {
-    image: string;
-    make: string ;
-    model: string;
-    year: number;
-    color: string;
+    carInfo:CarType;
   };
   
-  const CarCard = ({image, make, model, year, color }: CarCardProps) => {
+  const CarCard = ({carInfo}: CarCardProps) => {
+
+    const{
+      image, make, model, year, color,
+    } = carInfo
    
     return (
       
