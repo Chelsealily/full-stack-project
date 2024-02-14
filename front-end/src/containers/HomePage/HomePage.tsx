@@ -2,8 +2,10 @@ import "./HomePage.scss"
 
 const HomePage = () => {
     return (
-      <div>
-        <h1>My Favourite Cars</h1>
+      <div className="home-text">
+        <h2>Welcome to My Favourite Cars web app!
+        You can add your own favourites, add or delete mine too :D
+        </h2>
 
       </div>
     );

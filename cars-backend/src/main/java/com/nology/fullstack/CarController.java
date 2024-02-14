@@ -34,10 +34,10 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars());
     }
 
-    /*@GetMapping("/cars/{id}")
+    @GetMapping("/cars/{id}")
     public ResponseEntity<Car> getCarById(@PathVariable long id) {
         return ResponseEntity.status(HttpStatus.OK).body(carService.getCarById(id));
-    }*/
+    }
 
     // UPDATE
 
