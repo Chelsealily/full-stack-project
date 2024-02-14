@@ -12,31 +12,48 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    private CarService carService;
+    CarService carService;
+
+    @ExceptionHandler
+    public ResponseEntity<String> handleExceptions(CarNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
 
     // CREATE
     @PostMapping("/car")
-    public ResponseEntity<Car> createGreeting(@RequestBody Car car) {
+    public ResponseEntity<Car> createCar(@RequestBody Car car) {
         carService.addCar(car);
         return ResponseEntity.status(HttpStatus.CREATED).body(car);
     }
 
     //READ
 
-    @GetMapping("/carTest")
-    public ResponseEntity<String> carTest() {
-        return ResponseEntity.status(HttpStatus.OK).body("Hello car Lover!");
-    }
-
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> getCars(@RequestParam(defaultValue = "10") int limit) {
-
-        return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars(limit));
+    public ResponseEntity<List<Car>> getCars(){
+        System.out.println(carService.getAllCars());
+        return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars());
     }
+
+    /*@GetMapping("/cars/{id}")
+    public ResponseEntity<Car> getCarById(@PathVariable long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(carService.getCarById(id));
+    }*/
 
     // UPDATE
 
+    @PutMapping("/cars/{id}")
+    public ResponseEntity<Car> updateRecipe(@RequestBody Car newCar, @PathVariable long id) {
+        newCar.setId(id);
+        Car updatedCar = carService.updateCar(newCar, id);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedCar);
+    }
+
     //DELETE
 
+    @DeleteMapping("/cars/{id}")
+    public ResponseEntity<String> deleteCarById(@PathVariable long car_id) {
+        carService.deleteCarById(car_id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted Car");
+    }
 
 }

@@ -1,0 +1,11 @@
+@use "../../styles/variables" as *;
+
+.card-list {
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+    padding-bottom: 170px;
+  }

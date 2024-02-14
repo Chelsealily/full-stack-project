@@ -10,7 +10,6 @@ import java.util.List;
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     // READ
-    List<Car> getAllCarByMake(String uniqueMake);
 
     // DELETE
     void deleteCarById(Long id);

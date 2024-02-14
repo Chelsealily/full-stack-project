@@ -8,10 +8,6 @@ const Nav = () => {
         Home
       </Link>
 
-      <Link className="nav__item" to="/carTest">
-        Car Test
-      </Link>
-
       <Link className="nav__item" to="/cars">
         Car
       </Link>

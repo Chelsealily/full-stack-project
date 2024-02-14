@@ -12,7 +12,7 @@ const CarCardList = ({cars}:CarCardListProps) => {
   return ( 
     <div className="card-list">
        {cars.map((car) => (
-      <CarCard carInfo={car}/>
+      <CarCard key={car.id} carInfo={car}/>
        
   ))};
   </div>

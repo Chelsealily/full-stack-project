@@ -6,10 +6,10 @@ const viewCars = () => {
     const [cars, setCars] = useState([]);
   
     useEffect(() => {
-      fetchCars();
+      getCars();
     }, []);
   
-    const fetchCars = async () => {
+    const getCars = async () => {
 
         const response = await fetch('http://localhost:8080/cars');
         if (!response.ok) {

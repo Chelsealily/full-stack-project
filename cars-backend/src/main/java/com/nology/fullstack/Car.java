@@ -1,15 +1,14 @@
 package com.nology.fullstack;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table (name="cars")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String image;
     private String make;
     private String model;
     private int year;
@@ -20,7 +19,8 @@ public class Car {
     public Car() {
     }
 
-    public Car(String make, String model, int year, String color) {
+    public Car(String image, String make, String model, int year, String color) {
+        this.image = image;
         this.make = make;
         this.model = model;
         this.year = year;
@@ -34,6 +34,14 @@ public class Car {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getMake() {
@@ -74,6 +82,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id=" + id +
+                ", image_url='"+ image + '\'' +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +

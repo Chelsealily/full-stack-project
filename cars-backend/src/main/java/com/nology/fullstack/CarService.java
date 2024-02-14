@@ -2,7 +2,7 @@ package com.nology.fullstack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -21,19 +21,19 @@ public class CarService {
 
     // READ
 
-    public List<Car> getAllCars(int limit) {
+    public List<Car> getAllCars() {
         return carRepository
                 .findAll()
                 .stream()
-                .limit(limit)
                 .collect(Collectors.toList());
 
     }
 
     // UPDATE
 
-    public void updateCar(Car newCar, long id) {
+    public Car updateCar(Car newCar, long id) {
         carRepository.save(newCar);
+        return newCar;
     }
 
 
