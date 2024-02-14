@@ -38,10 +38,12 @@ const viewCars = () => {
     };
   
     return (
-      <div>
+      <section>
+    
         <Search searchTerm={searchTerm} handleInput={handleInput}/>
+        
         <CarCardList cars={filteredCars}/>
-    </div>
+    </section>
     )
 }
 
