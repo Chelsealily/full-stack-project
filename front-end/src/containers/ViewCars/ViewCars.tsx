@@ -1,13 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import "./ViewCars.scss"
 import CarCardList from "../../Components/CarCardList/CarCardList";
+import Search from "../../Components/Search/Search";
 
 const viewCars = () => {
+    const [searchTerm, setSearchTerm] = useState("");
     const [cars, setCars] = useState([]);
+    const [filteredCars, setFilteredCars] = useState([]);
   
     useEffect(() => {
       getCars();
     }, []);
+
+    useEffect(() => {
+      const filtered = cars.filter((car) =>
+        car.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCars(filtered);
+    }, [searchTerm, cars]);
+
+    // Search bar
+    const handleInput = (event: FormEvent<HTMLInputElement>) => {
+      const input = event.currentTarget.value.toLowerCase();
+      setSearchTerm(input);
+    };
+
   
     const getCars = async () => {
 
@@ -21,8 +38,10 @@ const viewCars = () => {
     };
   
     return (
-        <CarCardList cars={cars}/>
-
+      <div>
+        <Search searchTerm={searchTerm} handleInput={handleInput}/>
+        <CarCardList cars={filteredCars}/>
+    </div>
     )
 }
 

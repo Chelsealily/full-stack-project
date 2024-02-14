@@ -8,6 +8,7 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private String image;
     private String make;
     private String model;
@@ -19,12 +20,13 @@ public class Car {
     public Car() {
     }
 
-    public Car(String image, String make, String model, int year, String color) {
+    public Car(String name, String image, String make, String model, int year, String color) {
         this.image = image;
         this.make = make;
         this.model = model;
         this.year = year;
         this.color = color;
+        this.name= name;
     }
 
     // Getters and setters for all properties
@@ -34,6 +36,14 @@ public class Car {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name= model + " " + make;
+    }
+
+    public void setName(String name) {
+        this.name = model + " " + make;
     }
 
     public String getImage() {
