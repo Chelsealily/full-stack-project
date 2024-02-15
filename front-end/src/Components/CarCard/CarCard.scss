@@ -10,12 +10,6 @@
     color: $color-black;
   }
   
-  /* not currently working
-  .car-card:hover {
-    background-color: rgb(152, 194, 195);
-    border: 1px solid rgb(213, 203, 189);
-  }*/
-  
   .car-card__pic {
     height: 28vh;
   }
@@ -39,3 +33,14 @@
     text-decoration: none; 
   }
   
+
+  @media screen and (max-width: 765px) {
+    .car-card {
+      width: 35vw;
+      height:320px;
+
+    &__pic {
+      height:19vh;
+    }
+    }
+  }

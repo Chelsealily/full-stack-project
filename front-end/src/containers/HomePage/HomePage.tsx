@@ -6,7 +6,7 @@ const HomePage = () => {
     return (
       <div className="home">
         <Link className="home-image" to="/cars">
-        <img src={Welcome} alt="Welcome! add your own favourites, add, update or delete cars! have fun!"></img>
+        <img className="home-pic" src={Welcome} alt="Welcome! add your own favourites, add, update or delete cars! have fun!"></img>
        </Link>
       </div>
     );
