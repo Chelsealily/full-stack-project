@@ -1,8 +1,11 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
 import './App.scss'
 import HomePage from './containers/HomePage/HomePage';
 import Nav from './Components/Nav/Nav';
 import ViewCars from './containers/ViewCars/ViewCars';
+import FaveCar from "./assets/My Favourite Cars-3.png";
+import ScrollToTop from "react-scroll-to-top";
+import CreateCar from './containers/CreateCar/CreateCar';
 
 
 function App() {
@@ -10,16 +13,21 @@ function App() {
   return (
     
     <BrowserRouter>
-    <h2>My Favourite Cars 🚗  </h2>
+     <Link className="logo" to="/">
+    <img src={FaveCar} alt='my favourite cars - full stack web app'/>
+    </Link>
       <Nav/>
       <Routes>
   
           <Route path="/" element={<HomePage/>} />
           <Route path="/cars" element={<ViewCars/>} />
+          <Route path="/cars/create" element={<CreateCar/>} />
           {/* Add other routes */}
           
       </Routes>
+      <ScrollToTop smooth />
     </BrowserRouter>
+    
   );
 }
 

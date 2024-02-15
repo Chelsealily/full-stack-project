@@ -11,7 +11,7 @@ const Nav = () => {
       </Link>
 
       <Link className="nav__item" to="/cars">
-        Cars
+        All Cars
       </Link>
 
       <Link className="nav__item" to="/cars/create">

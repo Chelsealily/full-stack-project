@@ -1,23 +1,13 @@
-import CarForm from "../../Components/CarForm/CarForm";
-import { CarType } from "../../types/types";
+import { Link } from "react-router-dom";
+import Welcome from "../../assets/Welcome.png"
 import "./HomePage.scss"
 
 const HomePage = () => {
     return (
-      <div className="home-text">
-        <h2>Welcome to My Favourite Cars web app!
-        You can add your own favourites, add or delete mine too :D
-        </h2>
-        <CarForm defaultFormState={{
-          id: 0,
-          image: "",
-          make: "",
-          model: "",
-          year: 0,
-          color: ""
-        }} formTitle={"Add a new Car"} handleSubmit={function (car: CarType): void {
-          throw new Error("Function not implemented.");
-        } }/>
+      <div className="home">
+        <Link className="home-image" to="/cars">
+        <img src={Welcome} alt="Welcome! add your own favourites, add, update or delete cars! have fun!"></img>
+       </Link>
       </div>
     );
   };
