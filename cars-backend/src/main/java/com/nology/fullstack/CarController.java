@@ -42,7 +42,7 @@ public class CarController {
     // UPDATE
 
     @PutMapping("/cars/{id}")
-    public ResponseEntity<Car> updateRecipe(@RequestBody Car newCar, @PathVariable long id) {
+    public ResponseEntity<Car> updateCar(@RequestBody Car newCar, @PathVariable long id) {
         newCar.setId(id);
         Car updatedCar = carService.updateCar(newCar, id);
         return ResponseEntity.status(HttpStatus.OK).body(updatedCar);

@@ -15,55 +15,62 @@ const Form = ({ defaultFormState, handleSubmit, formTitle }: FormProps) => {
     event.preventDefault();
 
     if (Object.values(car).some(value => !value)) {
-      alert("Missing content, unable to proceed");
+      alert("Please fill in all of the fields!");
       return;
     }
 
     handleSubmit(car);
   };
 
-  const handleInput = (event: FormEvent<HTMLInputElement>, key: string) =>
-    setCar({ ...car, [key]: event.currentTarget.value });
 
   return (
     <div className="form-container">
       <h2 className="form-container__title">{formTitle}</h2>
       <form className="form-container__form" onSubmit={handleValidation}>
+        <label className="form-container__label">Manufacturer
         <input
           className="form-container__input"
+          id="form-make"
           type="text"
-          placeholder="Car Brand"
           value={car.make}
-          onInput={event => handleInput(event, "Brand")}
+          onInput={event => setCar({ ...car, make: event.currentTarget.value })}
         />
+        </label>
+        <label className="form-container__label">Model Name
         <input
           className="form-container__input"
+          id="form-model"
           type="text"
-          placeholder="Model Name"
           value={car.model}
-          onInput={event => handleInput(event, "Car Model Name")}
+          onInput={event => setCar({ ...car, model: event.currentTarget.value })}
         />
+        </label>
+        <label className="form-container__label">Production Year
         <input
           className="form-container__input"
-          type="text"
-          placeholder="Production Year"
+          id="form-year"
+          type="number"
           value={car.year}
-          onInput={event => handleInput(event, "Car Production Year")}
-        />
+          onInput={event => setCar({ ...car, year: event.currentTarget.value })}
+          />
+          </label>
+        <label className="form-container__label">Color
         <input
           className="form-container__input"
+          id="form-color"
           type="text"
-          placeholder="Color"
           value={car.color}
-          onInput={event => handleInput(event, "Car Color")}
-        />
+          onInput={event => setCar({ ...car, color: event.currentTarget.value })}
+          /></label>
+        <label id="form-container__label">Image Url
         <input
           className="form-container__input"
+          id="form-img"
           type="text"
-          placeholder="Image Url"
           value={car.image}
-          onInput={event => handleInput(event, "Car Image Url")}
-        />
+          onInput={event => setCar({ ...car, image: event.currentTarget.value })}
+          />
+          </label>
         <button type="submit" className="form-container__button">
           Submit
         </button>

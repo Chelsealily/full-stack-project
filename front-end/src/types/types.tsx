@@ -3,6 +3,6 @@ export type CarType = {
     image: string;
     make: string ;
     model: string;
-    year: number;
+    year: string;
     color: string;
   };

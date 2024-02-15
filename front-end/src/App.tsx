@@ -7,7 +7,6 @@ import FaveCar from "./assets/My Favourite Cars-3.png";
 import ScrollToTop from "react-scroll-to-top";
 import CreateCar from './containers/CreateCar/CreateCar';
 
-
 function App() {
 
   return (
