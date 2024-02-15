@@ -46,6 +46,7 @@ public class CarService {
         if (!carRepository.existsById(id)) {
             throw new CarNotFoundException("Car Not Found");
         }
+
         newCar.setId(id);
         carRepository.save(newCar);
         return newCar;

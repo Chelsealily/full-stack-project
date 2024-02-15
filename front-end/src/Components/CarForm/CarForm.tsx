@@ -71,6 +71,7 @@ const Form = ({ defaultFormState, handleSubmit, formTitle }: FormProps) => {
           onInput={event => setCar({ ...car, image: event.currentTarget.value })}
           />
           </label>
+         
         <button type="submit" className="form-container__button">
           Submit
         </button>

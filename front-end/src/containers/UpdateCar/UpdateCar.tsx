@@ -102,7 +102,6 @@ const UpdateCar = () => {
           defaultFormState={formCar}
           formTitle="Update Car"
           handleSubmit={handleUpdateCar}
-          // Pass any other necessary props
         />
       )}
     </section>
