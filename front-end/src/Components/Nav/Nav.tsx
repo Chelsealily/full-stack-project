@@ -17,6 +17,10 @@ const Nav = () => {
       <Link className="nav__item" to="/car/create">
         Add Car
       </Link>
+
+      <Link className="nav__item" to="/car/random">
+        Inspire me
+      </Link>
     </div>
   );
 };

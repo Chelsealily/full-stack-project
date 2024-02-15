@@ -7,6 +7,7 @@ import FaveCar from "./assets/My Favourite Cars-3.png";
 import ScrollToTop from "react-scroll-to-top";
 import CreateCar from './containers/CreateCar/CreateCar';
 import UpdateCar from './containers/UpdateCar/UpdateCar';
+import RandomCar from './containers/RandomCar/RandomCar';
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
           <Route path="/cars" element={<ViewCars/>} />
           <Route path="/car/create" element={<CreateCar/>} />
           <Route path="/car/:id" element={<UpdateCar/>} />
-          {/* Add other routes */}
+          <Route path="/car/random" element={<RandomCar/>} />
           
       </Routes>
       <ScrollToTop smooth />
