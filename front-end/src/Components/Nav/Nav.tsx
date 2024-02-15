@@ -14,7 +14,7 @@ const Nav = () => {
         All Cars
       </Link>
 
-      <Link className="nav__item" to="/cars/create">
+      <Link className="nav__item" to="/car/create">
         Add Car
       </Link>
     </div>

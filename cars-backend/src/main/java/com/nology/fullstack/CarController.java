@@ -34,26 +34,29 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.OK).body(carService.getAllCars());
     }
 
-    /*@GetMapping("/cars/{id}")
+    @GetMapping("/car/random")
+    public ResponseEntity<Car> getRandomCar() {
+        return ResponseEntity.status(HttpStatus.OK).body(carService.getRandomCar());
+    }
+    @GetMapping("/car/{id}")
     public ResponseEntity<Car> getCarById(@PathVariable long id) {
         return ResponseEntity.status(HttpStatus.OK).body(carService.getCarById(id));
-    }*/
+    }
 
     // UPDATE
 
-    @PutMapping("/cars/{id}")
+    @PutMapping("/car/{id}")
     public ResponseEntity<Car> updateCar(@RequestBody Car newCar, @PathVariable long id) {
-        newCar.setId(id);
         Car updatedCar = carService.updateCar(newCar, id);
         return ResponseEntity.status(HttpStatus.OK).body(updatedCar);
     }
 
     //DELETE
 
-    @DeleteMapping("/cars/{id}")
-    public ResponseEntity<String> deleteCarById(@PathVariable long car_id) {
-        carService.deleteCarById(car_id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted Car");
+    @DeleteMapping("/car/{id}")
+    public ResponseEntity<Void> deleteCarById(@PathVariable long id) {
+        carService.deleteCarById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

@@ -6,6 +6,7 @@ import ViewCars from './containers/ViewCars/ViewCars';
 import FaveCar from "./assets/My Favourite Cars-3.png";
 import ScrollToTop from "react-scroll-to-top";
 import CreateCar from './containers/CreateCar/CreateCar';
+import UpdateCar from './containers/UpdateCar/UpdateCar';
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
   
           <Route path="/" element={<HomePage/>} />
           <Route path="/cars" element={<ViewCars/>} />
-          <Route path="/cars/create" element={<CreateCar/>} />
+          <Route path="/car/create" element={<CreateCar/>} />
+          <Route path="/car/:id" element={<UpdateCar/>} />
           {/* Add other routes */}
           
       </Routes>

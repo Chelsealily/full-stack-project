@@ -10,6 +10,7 @@ type SearchProps = {
     return (
       <div className="search-bar">
           <input
+            id="search-bar"
             type="text"
             placeholder="🔎 Search.."
             value={searchTerm}

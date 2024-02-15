@@ -1,3 +1,5 @@
+@use "../../styles/variables" as *;
+
 .car-card {
     width: 28vw;
     box-shadow: 5px 5px 10px #888888;
@@ -5,12 +7,14 @@
     text-align: center;
     background-color: rgb(202, 202, 202);
     padding-top: 20px;
+    color: $color-black;
   }
   
+  /* not currently working
   .car-card:hover {
     background-color: rgb(152, 194, 195);
-    border: 3px solid rgb(213, 203, 189);
-  }
+    border: 1px solid rgb(213, 203, 189);
+  }*/
   
   .car-card__pic {
     height: 28vh;
@@ -19,5 +23,19 @@
   h1 {
     font-size: 0.9rem;
     text-transform: uppercase;
+    
+  }
+
+  a:link { 
+    text-decoration: none; 
+  } 
+  a:visited { 
+    text-decoration: none; 
+  } 
+  a:hover { 
+    text-decoration: none; 
+  } 
+  a:active { 
+    text-decoration: none; 
   }
   

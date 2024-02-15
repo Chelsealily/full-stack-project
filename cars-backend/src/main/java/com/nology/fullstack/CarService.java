@@ -1,6 +1,7 @@
 package com.nology.fullstack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,9 +30,23 @@ public class CarService {
 
     }
 
-    // UPDATE
+    public Car getCarById(long id) {
+        return carRepository.findById(id).orElseThrow();
+    }
 
+    public Car getRandomCar() {
+        return carRepository.getRandomCar();
+    }
+
+
+
+    // UPDATE
+    @Modifying
     public Car updateCar(Car newCar, long id) {
+        if (!carRepository.existsById(id)) {
+            throw new CarNotFoundException("Car Not Found");
+        }
+        newCar.setId(id);
         carRepository.save(newCar);
         return newCar;
     }
@@ -41,6 +56,9 @@ public class CarService {
     // DELETE
     @Transactional
     public void deleteCarById(long id) {
+        if (!carRepository.existsById(id)) {
+            throw new CarNotFoundException("Car Not Found");
+        }
         carRepository.deleteCarById(id);
     }
 
